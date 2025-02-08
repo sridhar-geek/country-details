@@ -1,0 +1,33 @@
+"use client";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const Filters = ({ setRegion }) => {
+  const handleRegionChange = (value) => {
+    setRegion(value);
+  };
+
+  return (
+    <Select onValueChange={handleRegionChange} >
+      <SelectTrigger className="w-[200px] p-7 rounded-sm bg-chart-5 focus:ring-0 focus:ring-offset-0">
+        <SelectValue placeholder="Filter by region" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="none">None</SelectItem>
+        <SelectItem value="Asia">Asia</SelectItem>
+        <SelectItem value="Africa">Africa</SelectItem>
+        <SelectItem value="Americas">Americas</SelectItem>
+        <SelectItem value="Europe">Europe</SelectItem>
+        <SelectItem value="Polar">Polar</SelectItem>
+        <SelectItem value="Oceania">Oceania</SelectItem>
+      </SelectContent>
+    </Select>
+  );
+};
+
+export default Filters;

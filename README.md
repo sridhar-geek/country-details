@@ -26,9 +26,11 @@ Frontend Mentor have numerous challenges to help improve coding skills by buildi
 
 ### Built with
 
-- React.js
+- Next.js
+- TypeScript
 - Tailwind CSS
-- Tiny Url API
+- Rest Api
+- Shadcn
 
 ## Author
 

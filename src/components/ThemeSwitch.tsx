@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 
   React.useEffect(() => {
     setTheme(mode?  'light' : "dark" )
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[mode])
 
   return (

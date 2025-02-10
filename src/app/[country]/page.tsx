@@ -1,21 +1,23 @@
-import React from "react";
-
 import Image from "next/image";
 import BackButton from "@/components/BackButton";
 import { Card } from "@/components/ui/card";
+import { countryType, languages,currency } from "@/lib/types";
 
 const SingleCountry = async ({ params }: { params: { country: string } }) => {
-  const baseUrl = process.env.NEXT_PUBLIC_URL || "http://localhost:3000";
+  const baseUrl = "http://localhost:3000/api"
   const data = await fetch(`${baseUrl}/countries`);
   const response = await data.json();
 
   const country = response.countries.filter(
-    (data) => data.alpha2Code === params.country
+    (data: countryType) => data.alpha2Code === params.country
   );
 
   const selectedCountry = country[0];
 
-  const getBorderCountryNames = (borders, countries) => {
+  const getBorderCountryNames = (
+    borders: string[],
+    countries: countryType[]
+  ) => {
     return borders?.map((borderCode) => {
       const country = countries.find((c) => c.alpha3Code === borderCode);
       return country ? country.name : borderCode;
@@ -27,29 +29,29 @@ const SingleCountry = async ({ params }: { params: { country: string } }) => {
     response.countries
   );
 
-const basicDetais = [
-  {
-    name: "Native Name",
-    value: selectedCountry.nativeName,
-  },
-  {
-    name: "Population",
-    value: selectedCountry.population,
-  },
-  {
-    name: "Region",
-    value: selectedCountry.region,
-  },
-  {
-    name: "Sub Region",
-    value: selectedCountry.subregion,
-  },
-  {
-    name: "Capital",
-    value: selectedCountry.capital,
-  },
-];
-  
+  const basicDetais = [
+    {
+      name: "Native Name",
+      value: selectedCountry.nativeName,
+    },
+    {
+      name: "Population",
+      value: selectedCountry.population,
+    },
+    {
+      name: "Region",
+      value: selectedCountry.region,
+    },
+    {
+      name: "Sub Region",
+      value: selectedCountry.subregion,
+    },
+    {
+      name: "Capital",
+      value: selectedCountry.capital,
+    },
+  ];
+
   return (
     <main className="p-10 overflow-hidden">
       <BackButton />
@@ -80,7 +82,7 @@ const basicDetais = [
             <aside>
               <div className="flex gap-2 mb-2 subHeadingFont">
                 Top Level Domain:{" "}
-                {selectedCountry.topLevelDomain?.map((domain) => {
+                {selectedCountry.topLevelDomain?.map((domain: string) => {
                   return (
                     <p key={domain} className="textFont">
                       {domain}
@@ -90,7 +92,7 @@ const basicDetais = [
               </div>
               <div className="flex gap-2 mb-2 subHeadingFont">
                 Currency:{" "}
-                {selectedCountry.currencies?.map((currency) => {
+                {selectedCountry.currencies?.map((currency: currency) => {
                   return (
                     <p className="textFont" key={currency.code}>
                       {currency.name},
@@ -100,7 +102,7 @@ const basicDetais = [
               </div>
               <div className="flex gap-2 mb-2 subHeadingFont">
                 Languages:{" "}
-                {selectedCountry.languages?.map((language) => {
+                {selectedCountry.languages?.map((language: languages) => {
                   return (
                     <p className="textFont" key={language.nativeName}>
                       {language.name},
@@ -114,13 +116,13 @@ const basicDetais = [
             <div className="flex flex-col gap-2 mt-4 md:flex-row md:items-start ">
               <p className="subHeadingFont text-nowrap">Border Countries: </p>
               <div className="flex gap-2 flex-wrap">
-              {borderCountries?.map((borderCountry, index) => {
-                return (
-                  <Card key={index} className="p-3 h-12 rounded-sm" >
-                    {borderCountry}
-                  </Card>
-                );
-              })}
+                {borderCountries?.map((borderCountry, index) => {
+                  return (
+                    <Card key={index} className="p-3 h-12 rounded-sm">
+                      {borderCountry}
+                    </Card>
+                  );
+                })}
               </div>
             </div>
           </div>

@@ -4,8 +4,9 @@ import React from "react";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { countryType } from "@/lib/types";
 
-const CountryCard = ({ props }) => {
+const CountryCard = ({ props }: { props: countryType }) => {
   const router = useRouter();
   return (
     <Card
@@ -16,7 +17,8 @@ const CountryCard = ({ props }) => {
         <Image
           src={props.flags.png}
           fill
-          style={{borderTopLeftRadius: "10px", borderTopRightRadius: "10px"}}
+          sizes="34"
+          style={{ borderTopLeftRadius: "10px", borderTopRightRadius: "10px" }}
           blurDataURL="https://flagcdn.com/w320/ax.png"
           alt="country flag"
         />
@@ -24,8 +26,7 @@ const CountryCard = ({ props }) => {
       <CardContent>
         <h2 className="mt-7 mb-3 headingFont">{props.name}</h2>
         <p className="subHeadingFont">
-          Population:{" "}
-          <span className="textFont">{props.population}</span>
+          Population: <span className="textFont">{props.population}</span>
         </p>
         <p className="subHeadingFont">
           Region: <span className="textFont">{props.region}</span>

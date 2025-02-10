@@ -6,14 +6,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Props } from "./SearchInput";
 
-const Filters = ({ setRegion }) => {
-  const handleRegionChange = (value) => {
-    setRegion(value);
+const Filters = ({ updateFilters,region }:Props) => {
+
+  const handleRegionChange = (value:string) => {
+    updateFilters("region", value)
   };
 
   return (
-    <Select onValueChange={handleRegionChange} >
+    <Select onValueChange={handleRegionChange} value={region}>
       <SelectTrigger className="w-[200px] p-7 rounded-sm bg-chart-5 focus:ring-0 focus:ring-offset-0">
         <SelectValue placeholder="Filter by region" />
       </SelectTrigger>

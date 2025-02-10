@@ -1,6 +1,6 @@
 # Frontend Mentor - QR code component solution
 
-This is a solution to the [URL Shortner challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H). 
+This is a solution to the [REST Countries API challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). 
 Frontend Mentor have numerous challenges to help improve coding skills by building realistic projects. 
 
 ## Table of contents
@@ -13,14 +13,14 @@ Frontend Mentor have numerous challenges to help improve coding skills by buildi
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
-  ### It is Url Shortner. Used to shortnen the URL and give the user to copy the short and crispy URL.
+  ### It is Country Details App. Used to give details of all the countries.
 ### Screenshot
 
-![](./public/Screenshot%20url_shortner.png)
+![](./public/Screenshot.png)
 
 ### Links
 
-- GitHub URL: [Code](https://github.com/sridhar-geek/url_shortner)
+- GitHub URL: [Code](https://github.com/sridhar-geek/country-details)
 - Site URL: [Demo](https://sridhar-geek.github.io/QR_code/)
 
 

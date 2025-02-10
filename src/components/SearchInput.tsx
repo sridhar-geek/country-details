@@ -1,14 +1,20 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
 
-const SearchInput = ({ setSearchTerm }) => {
+export type Props = {
+  updateFilters: (key: "region" | "searchTerm", val: string) => void;
+  region?: string;
+  searchTerm?: string;
+};
+
+const SearchInput = ({ updateFilters, searchTerm }: Props) => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleSearchChange = (e) => {
-    setInputValue(e.target.value);
-    setSearchTerm(e.target.value); 
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+    updateFilters("searchTerm", event.target.value);
   };
 
   return (
@@ -18,7 +24,7 @@ const SearchInput = ({ setSearchTerm }) => {
       </span>
       <Input
         type="search"
-        value={inputValue}
+        value={searchTerm || inputValue}
         onChange={handleSearchChange}
         placeholder="Search for a country..."
         className="p-6 pl-16  rounded-sm focus:ring-0 focus:ring-offset-0 outline-none focus:outline-none bg-card"

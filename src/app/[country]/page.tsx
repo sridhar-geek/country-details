@@ -1,11 +1,10 @@
 import Image from "next/image";
 import BackButton from "@/components/BackButton";
 import { Card } from "@/components/ui/card";
-import { countryType, languages,currency } from "@/lib/types";
+import { countryType, languages, currency } from "@/lib/types";
 
 const SingleCountry = async ({ params }: { params: { country: string } }) => {
-  const baseUrl = "http://localhost:3000/api"
-  const data = await fetch(`${baseUrl}/countries`);
+  const data = await fetch(`api/countries`);
   const response = await data.json();
 
   const country = response.countries.filter(

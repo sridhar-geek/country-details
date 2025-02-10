@@ -21,7 +21,7 @@ Frontend Mentor have numerous challenges to help improve coding skills by buildi
 ### Links
 
 - GitHub URL: [Code](https://github.com/sridhar-geek/country-details)
-- Site URL: [Demo](https://sridhar-geek.github.io/QR_code/)
+- Site URL: [Demo](https://country-details-kappa.vercel.app/)
 
 
 ### Built with

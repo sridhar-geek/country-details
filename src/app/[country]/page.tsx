@@ -3,8 +3,12 @@ import BackButton from "@/components/BackButton";
 import { Card } from "@/components/ui/card";
 import { countryType, languages, currency } from "@/lib/types";
 
+
 const SingleCountry = async ({ params }: { params: { country: string } }) => {
-  const data = await fetch(`api/countries`);
+  const baseUrl = "https://country-details-kappa.vercel.app/api/";
+    const data = await fetch(
+      `${baseUrl}/countries`
+    );
   const response = await data.json();
 
   const country = response.countries.filter(

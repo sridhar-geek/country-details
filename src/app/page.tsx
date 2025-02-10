@@ -25,7 +25,7 @@ export default function Home() {
     const fetchCountries = async () => {
       setFilters((prev) => ({ ...prev, isLoading: true }));
       try {
-        const data = await fetch(`api/countries`);
+        const data = await fetch(`/api/countries`);
         const response = await data.json();
         setAllCountries(response.countries); // Store the original list
         setFilteredCountries(response.countries); // Also set the filtered list initially
